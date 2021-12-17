@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'diaries/index'
+  # get 'diaries/index'
   root to: "diaries#index"
   resources :diaries, only: :index
-  resources :users, only: :show
+  # resources :users
 end

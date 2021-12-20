@@ -1,14 +1,18 @@
-<div class="dropdown-item">
-   <div class="container">
-   <link rel="stylesheet" href="stylesheets/diaries">
+<%# <!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     %>
+  <%# <div class="dropdown-item">
+   <div class="container"> %>
 
    <h3>POST</h3>
      <%= form_with(model: @diary, local: true) do |form| %>
       <%= form.text_field :title, placeholder: "Title", rows: "10" %>
       <%= form.text_area :country_id, placeholder: "country" %>
       <%= form.text_area :city, placeholder: "city/place" %>
-      <%= form.text_field :image, placeholder: "Image Url" %>
+      <%= form.file_field :image, placeholder: "image", class: 'diary-image' %>
       <%= form.text_area :text, placeholder: "text", rows: "100" %>
       <%= form.submit "SEND" %>
-    <% end %>
-</div>
+     <% end %>

@@ -1,6 +1,6 @@
 class DiariesController < ApplicationController
   def index
-    @diaries = Diary.all
+    @diaries = Diary.order('created_at DESC')
   end
 
   def new
@@ -8,7 +8,16 @@ class DiariesController < ApplicationController
   end
 
   def create
-    Diary.create(diary_params)
+    @diary = Diary.new(diary_params)
+    binding.pry
+    if @diary.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def show
   end
 
   private

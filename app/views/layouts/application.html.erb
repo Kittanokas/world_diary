@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="/assets/stylesheets/bootstrap" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>%
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
    </head> 
   <body>
       <header class="header">
@@ -39,15 +39,6 @@
 
         </div>
     </nav>
-          <%# <% if user_signed_in? %>
-          <%# <div class="text-center">
-          <a href="/users/sign_in", class="btn btn-lg btn-outline-secondary btn-block" role="button">ログイン</a>
-          </div>
-          <% else %>
-          <%# <div class="text-center">
-          <a href="/users/sign_in", class="btn btn-lg btn-outline-secondary btn-block" role="button">ログイン</a>
-          </div>
-          <% end %>
 
       <%= yield %>
       <footer class="footer">

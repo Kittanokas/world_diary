@@ -1,0 +1,12 @@
+<div class="dropdown-item">
+   <h3>POST</h3>
+     <%= form_with(model: @diary, local: true) do |form| %>
+      <%= form.text_field :nickname, placeholder: "Nickname" %>
+      <%= form.text_area :title, placeholder: "text", rows: "10" %>
+      <%= form.text_area :country_id, placeholder: "text" %>
+      <%= form.text_area :city, placeholder: "text" %>
+      <%= form.text_field :image, placeholder: "Image Url" %>
+      <%= form.text_area :text, placeholder: "text", rows: "100" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+</div>

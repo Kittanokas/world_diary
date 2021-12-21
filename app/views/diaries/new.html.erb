@@ -13,10 +13,10 @@
 <div class="text-center">
   <h3>POST</h3>
   <%= form_with(model: @diary, local: true) do |form| %>
-    <%= form.text_field :title, placeholder: "title", rows: "10" %>
+    <%= form.text_field :title, placeholder: "Title", rows: "10" %>
     <%= form.collection_select(:country_id, Country.all, :id, :name, {}, {class:"form-select"}) %>
-    <%= form.text_field :city, placeholder: "city/place" %>
-    <%= form.file_field :image, placeholder: "image", class: "img-fluid img-thumbnail" %>
+    <%= form.text_field :city, placeholder: "City/Place" %>
+    <%= form.text_field :image, placeholder: "image", class: "img-fluid img-thumbnail" if diary.image.attached? %>
     <%= form.text_area :content, placeholder: "text", rows: "100" %>
     <%= form.submit "SEND" %>
   <% end %>

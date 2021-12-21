@@ -9,11 +9,11 @@ class DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(diary_params)
-    # if @diary.save
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
+    if @diary.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show

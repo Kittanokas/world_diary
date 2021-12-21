@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+  before_action :set_diary, only: [:edit, :show]
   def index
     @diaries = Diary.order('created_at DESC')
   end
@@ -17,12 +18,18 @@ class DiariesController < ApplicationController
   end
 
   def show
-    @diary = Diary.find(params[:id])
+  end
+
+  def edit
   end
 
   private
   def diary_params
     params.require(:diary).permit(:title, :image, :country_id, :city, :content).merge(user_id: current_user.id)
   end
-    
+  
+  def set_diary
+    @diary = Diary.find(params[:id])
+  end
+
 end

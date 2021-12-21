@@ -1,18 +1,28 @@
-<%# <!doctype html>
+<%# <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     %>
-  <%# <div class="dropdown-item">
-   <div class="container"> %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldDiary</title>
+    <%= csrf_meta_tags %>
+    <%# <%= csp_meta_tag %>
+    <%# <link rel="stylesheet" href="/assets/stylesheets/bootstrap" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <%# </head>  %>
 
-   <h3>POST</h3>
-     <%= form_with(model: @diary, local: true) do |form| %>
-      <%= form.text_field :title, placeholder: "Title", rows: "10" %>
-      <%= form.text_area :country_id, placeholder: "country" %>
-      <%= form.text_area :city, placeholder: "city/place" %>
-      <%= form.file_field :image, placeholder: "image", class: 'diary-image' %>
-      <%= form.text_area :text, placeholder: "text", rows: "100" %>
-      <%= form.submit "SEND" %>
-     <% end %>
+<div class="mb-3">
+  <h3>POST</h3>
+  <%= form_with(model: @diary, local: true) do |form| %>
+    <%= form.text_field :title, placeholder: "Title", rows: "10" %>
+    <%= form.text_field :country_id, placeholder: "country" %>
+    <%= form.text_field :city, placeholder: "city/place" %>
+    <%= form.file_field :image, placeholder: "image", class: 'diary-image' %>
+    <%= form.text_area :content, placeholder: "text", rows: "100" %>
+    <%= form.submit "SEND" %>
+  <% end %>
+</div>
+<%# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+      
+  </body>
+</html> %>

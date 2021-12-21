@@ -1,5 +1,7 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:edit, :show]
+  before_action :authenticate_user!, except: [:show, :index]
+
   def index
     @diaries = Diary.order('created_at DESC')
   end
@@ -21,6 +23,15 @@ class DiariesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @diary = Diary.find(params[:id])
+    if @diary.update(diary_params)
+      redirect_to diary_path
+    else
+      render :edit
+    end
   end
 
   private

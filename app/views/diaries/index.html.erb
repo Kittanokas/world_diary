@@ -47,7 +47,7 @@
       <%= link_to diary_path(diary.id) do %>
         <div class="col">
           <div class="card shadow-sm">
-          <%= image_tag diary.image, class: "img-fluid img-thumbnail" %>
+          <%= image_tag diary.image.variant(resize: '500x500'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
           </div>
         <div class='card-body'>
           <p class='card-text'>

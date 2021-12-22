@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
   before_action :set_diary, only: [:edit, :show]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @diaries = Diary.order('created_at DESC')
@@ -26,12 +27,16 @@ class DiariesController < ApplicationController
   end
 
   def update
-    @diary = Diary.find(params[:id])
     if @diary.update(diary_params)
       redirect_to diary_path
     else
       render :edit
     end
+  end
+
+  def destroy
+    @diary.destroy
+    redirect_to root_path
   end
 
   private
@@ -41,6 +46,11 @@ class DiariesController < ApplicationController
   
   def set_diary
     @diary = Diary.find(params[:id])
+  end
+
+  def contributor_confirmation
+    @diary = Diary.find(params[:id])
+    redirect_to root_path unless current_user == @diary.user
   end
 
 end

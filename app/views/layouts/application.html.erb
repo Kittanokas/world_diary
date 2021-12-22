@@ -23,8 +23,11 @@
             <ul class="navbar-nav">
             <% if user_signed_in? %>
                 <li class="nav-item active">
-                 <span><%= current_user.nickname %>
-                  <a class="nav-link" href="/users/sign_out" data-method="delete">Sign out</a>
+                 <span>
+                 <%= current_user.nickname %>
+                 </span>
+                 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+                  <%# <a class="nav-link" href="/users/sign_out" data-method="delete">Sign out</a> %>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/diaries/new">New post</a>

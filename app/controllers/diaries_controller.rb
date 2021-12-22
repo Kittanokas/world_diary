@@ -40,10 +40,11 @@ class DiariesController < ApplicationController
   end
 
   private
+
   def diary_params
     params.require(:diary).permit(:title, :image, :country_id, :city, :content).merge(user_id: current_user.id)
   end
-  
+
   def set_diary
     @diary = Diary.find(params[:id])
   end
@@ -52,5 +53,4 @@ class DiariesController < ApplicationController
     @diary = Diary.find(params[:id])
     redirect_to root_path unless current_user == @diary.user
   end
-
 end

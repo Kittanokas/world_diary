@@ -5,10 +5,9 @@ class Country < ActiveHash::Base
     { id: 3, name: 'Americas' },
     { id: 4, name: 'Asia' },
     { id: 5, name: 'Europe' },
-    { id: 6, name: 'Oceania' },
+    { id: 6, name: 'Oceania' }
   ]
 
   include ActiveHash::Associations
   has_many :diaries
-
-  end
+end

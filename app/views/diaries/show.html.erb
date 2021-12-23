@@ -15,7 +15,10 @@
          </div>
         <% end %>
          <p><%= @diary.content %></p>
-         <span class="name"><%= @diary.title %>
+         <span class="name">
+         <a href="/users/<%= @diary.user.id %>">
+        <span>投稿者</span><%= @diary.user.nickname %>
+        </a>
          </span>
         </div>         
     </div>

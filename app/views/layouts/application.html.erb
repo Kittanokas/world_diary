@@ -24,10 +24,14 @@
             <% if user_signed_in? %>
                 <li class="nav-item active">
                  <span>
-                 <%= current_user.nickname %>
+                   <%= current_user.nickname %>
+                    <ul class="user__info">
+                   <li>
+                    <%= link_to "My Page", "/users/#{current_user.id}" %>
+                    <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+                   </li>
+                  </ul>
                  </span>
-                 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
-                  <%# <a class="nav-link" href="/users/sign_out" data-method="delete">Sign out</a> %>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/diaries/new">New post</a>

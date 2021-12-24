@@ -21,9 +21,7 @@
           font-size: 3.5rem;
         }
       }
-    </style>
-
-    
+    </style> 
   </head>
   <body>
   <main>
@@ -42,56 +40,40 @@
       </div>
     </div>
   </section>
-    <% if user_signed_in? %>
-    <% @diaries.each do |diary| %>
-      <li class='list'>
-      <%= link_to diary_path(diary.id) do %>
-        <div class="col">
-          <div class="card shadow-sm">
-          <%= image_tag diary.image.variant(resize: '500x500'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
-          </div>
-        <div class='card-body'>
-          <p class='card-text'>
-            <%= diary.title %>
-            <a href="/users/<%= diary.user.id %>">
-          </p>
-          <div class='item-price'>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Show</button>              
-              </div>
-           </div>         
-          </div>
-        </div>
-        </div>
-      <% end %>
-      </li>
-      <% end %>
-   
-     <% if @diaries.length == 0 %>
-      <div class="album py-5 bg-light">
-       <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-         <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-              </div>
-            </div>
-           </div>
+  <div class= "d-flex align-items-center justify-content-center">
+   <div class="card" style="width: 18rem;">
+    <li class='list'>
+     <% if user_signed_in? %>
+      <% @diaries.each do |diary| %>
+        <%# <%= link_to diary_path(diary.title) %>
+        <body class="bg-light">
+          <div class="container text-secondary">
+          <%= image_tag diary.image.variant(resize: '300x300'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
+          </div>
+          <div class="card-body">
+          <h5 class="card-title"> <%= diary.title %> </h5>
+          </div><br/>
+          <a href="/users/<%= diary.user.id %>"><%= current_user.nickname %></a>
+          <a href="diaries/<%= diary.id %>" class="btn btn-primary">Show</a>              
+        </body>
+      <% end %>
+     <% end %>
+     </li>
+   </div>
+     
+     <% if @diaries.length == 0 %>
+      <div class="card" style="width: 18rem;">
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+         <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
           </div>
          </div>
-        </div>
-     </div>
-  <% end %>
- <% end %>
+       </div>
+      </div>
+    <% end %>
+  </div>
  </main>
 
 

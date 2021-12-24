@@ -1,5 +1,6 @@
-<div class="col">
-  <div class="card shadow-sm">
+<div class= "d-flex align-items-center justify-content-center">
+<body class="bg-light">
+  <div class="container text-secondary">
     <h3>Edit</h3>
     <%= form_with(model: @diary, local: true) do |form| %>
       <%= form.text_field :title, placeholder: "Title", rows: "10" %>
@@ -13,4 +14,5 @@
       <%= form.submit "SEND" %>
     <% end %>
   </div>
+</div>
 </div>

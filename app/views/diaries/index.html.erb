@@ -4,22 +4,18 @@
         <p class="lead text-muted" >今までのみなさんの旅日記を共有しませんか？ <br> 次に旅したい場所 また行ってみたい 世界の場所を探してみましょう</p>
         <p>
         <% if user_signed_in? %>
-          <a href="/users/<% current_user.id %>" class="btn btn-outline-success">私の旅日記</a>
+          <a href="#" class="btn btn-outline-success">私の旅日記</a>
           <a href="#" class="btn btn-outline-success">行きたいとこリスト</a>
         <% end %>
         </p>
       </div>
     </div>
-  </section>
-  <div class="border col-5">
   <br>
    <div class="row">
-  <div class= "d-flex align-items-center justify-content-center">
-   <div class="card" style="width: 18rem;">
+  <div class="col align-self-center">
     <li class='list'>
      <% if user_signed_in? %>
       <% @diaries.each do |diary| %>
-        <%# <%= link_to diary_path(diary.title) %>
         <body class="bg-light">
           <div class="container text-secondary">
           <%= image_tag diary.image.variant(resize: '300x300'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
@@ -27,12 +23,13 @@
           <div class="card-body">
           <h5 class="card-title"> <%= diary.title %> </h5>
           </div><br/>
-          <a href="/users/<%= diary.user.id %>"><%= current_user.nickname %></a>
-          <a href="diaries/<%= diary.id %>" class="btn btn-primary">Show</a>              
+          <a href="/users/<%= diary.user.id %>" class="btn btn-success"><%= current_user.nickname %></a>
+          <a href="diaries/<%= diary.id %>" class="btn btn-outline-success">Show</a>              
         </body>
       <% end %>
      <% end %>
      </li>
+   </div>
    </div>
      
      <% if @user == nil && @diaries.length == 0 %>
@@ -42,7 +39,7 @@
         </div>
       </div>
     <% end %>
-  </div>
+
  </main>
 
 

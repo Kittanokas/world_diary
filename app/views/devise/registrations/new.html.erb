@@ -28,7 +28,7 @@
 
   <form>
     <h2>Sign up</h2>
-    <%# <%= form_with model: @user, url: user_registration_path, local: true do |f| %> %>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-floating">
@@ -56,13 +56,13 @@
       
       <div class="form-floating">
         <%= f.label :profile %> <br />
-        <%= f.text_field :profile, autofocus: true, maxlength: "100" %>
+        <%= f.text_area :profile, autofocus: true, maxlength: "100" %>
       </div>
       
       </div>
-
+      <br />
       <div class="actions">
-        <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up">
+        <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class="btn btn-outline-success">
       </div>
     <% end %>
     </form>

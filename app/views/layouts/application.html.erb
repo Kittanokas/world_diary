@@ -34,14 +34,12 @@
             </span>
             <li class="nav-item">
              <a class="nav-link" aria-current="page" href="/users/<%= current_user.id %>">
-             <%# <%= button_to "My page", user_path(current_user.id), {method: :get, class: "mybutton"}%> 
-             <p class="text-secondary">My Page</p>
+             <%= button_to "My page", user_path(current_user.id), {method: :get, class: "btn btn-outline-secondary navbar-btn"} %>
              </a>
             </li>
             <li class="nav-item">
              <a class="nav-link" aria-current="page" href="/users/sign_out">
-             <%# <%= button_to "Log out", destroy_user_session_path, {method: :delete, class: "mybutton"}%>
-             <p class="text-secondary">Sign Out</p>
+             <%= button_to "Log out", destroy_user_session_path, {method: :delete, class: "btn btn-outline-secondary navbar-btn"}%>
              </a>
             </li>
            </ul>

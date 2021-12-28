@@ -66,3 +66,4 @@ gem 'bootstrap', '~> 5.0.2'
 
 gem 'active_hash'
 
+gem 'geocoder'

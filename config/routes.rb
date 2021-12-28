@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :diaries
   resources :users, only: :show  
+  resources :maps, only: [:index]
 end

@@ -2490,6 +2490,12 @@ textarea.form-control-lg {
   margin-right: 1rem;
 }
 
+.btn-logout {
+  width: 100%;
+  padding: 3px 20px !important;
+  text-align: left !important;
+}
+
 .btn-check {
   position: absolute;
   clip: rect(0, 0, 0, 0);

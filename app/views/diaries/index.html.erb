@@ -1,46 +1,19 @@
-
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap v5.0</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style> 
-  </head>
-  <body>
-  <main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">世界旅日記</h1>
+<div class="container-sm">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
         <p class="lead text-muted" >今までのみなさんの旅日記を共有しませんか？ <br> 次に旅したい場所 また行ってみたい 世界の場所を探してみましょう</p>
         <p>
         <% if user_signed_in? %>
-          <a href="#" class="btn btn-primary my-2">私の旅日記</a>
-          <a href="#" class="btn btn-secondary my-2">行きたいとこリスト</a>
+          <a href="/users/<% current_user.id %>" class="btn btn-outline-success">私の旅日記</a>
+          <a href="#" class="btn btn-outline-success">行きたいとこリスト</a>
         <% end %>
         </p>
       </div>
     </div>
   </section>
-
+  <div class="border col-5">
+  <br>
+   <div class="row">
   <div class= "d-flex align-items-center justify-content-center">
    <div class="card" style="width: 18rem;">
     <li class='list'>
@@ -62,15 +35,11 @@
      </li>
    </div>
      
-     <% if @diaries.length == 0 %>
-      <div class="card" style="width: 18rem;">
-       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-         <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center">
-          </div>
-         </div>
-       </div>
+     <% if @user == nil && @diaries.length == 0 %>
+      <div class="container-sm text-secondary" style="width: 18rem;">
+      <div class="text-center">
+        <%= link_to image_tag("christmas.jpeg"), root_path %>
+        </div>
       </div>
     <% end %>
   </div>

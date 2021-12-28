@@ -1,4 +1,7 @@
-<div class="contents row">
+<div class="container">
+  <div class="row">
+  <div class= "d-flex align-items-center justify-content-center">
+  
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @diaries.each do |diary| %>
     <div class="content_post" style="background-image: url(<%= diary.image %>);">
@@ -6,4 +9,6 @@
       <span class="name"><%= diary.title %></span>
     </div>
   <% end %>
+</div>
+</div>
 </div>

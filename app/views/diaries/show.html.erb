@@ -1,27 +1,53 @@
-<div class="container text-secondary">
-  <div class= "d-flex align-items-center justify-content-center">
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="bootstrap.css" rel="stylesheets">
+   </head>
+   <body class="text-center">
+
+   <div class='card-body'>
     <%= image_tag @diary.image, class: "img-fluid img-thumbnail" %>
   </div>
-  <div class='card-body'>
-    <p class='card-text'>
+    <h5 class="card-title">
       <%= @diary.title %>
+    </h5>
      </p>
-    <div class='item-price'>
-      <div class="d-flex justify-content-between align-items-center">
-        <% if @diary.user_id = current_user.id %>
-         <div class="btn-group">
-            <%= button_to 'Edit', edit_diary_path(@diary.id), method: :get, role: "button" %>
-            <%= button_to 'Delete', diary_path(@diary.id), method: :delete, role: "button" %>
-         </div>
-        <% end %>
-         <p><%= @diary.content %></p>
+     <% if @diary.user_id = current_user.id %>
+      <div class="btn-group">
+        <%= button_to 'Edit', edit_diary_path(@diary.id), method: :get, role: "button" %>
+        <%= button_to 'Delete', diary_path(@diary.id), method: :delete, role: "button" %>
+      </div>
+     <% end %>
+        <p class='card-text'>
+         <%= @diary.content %>
+        </p>
          <span class="name">
-         <a href="/users/<%= @diary.user.id %>">
-        <span>投稿者</span><%= @diary.user.nickname %>
+         <a href="/users/<%= @diary.user.id %>" class="link-secondary">
+        <span>投稿者</span><br/><%= @diary.user.nickname %>
         </a>
          </span>
         </div>         
-    </div>
   </div>
  </div>
  </div>

@@ -1,21 +1,47 @@
-<div class= "d-flex align-items-center justify-content-center">
-<div class="container text-white">
-  <div class="row">
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="bootstrap.css" rel="stylesheets">
+  </head>
+   <body class="text-center">
+
+  <form>
     <h2>Sign up</h2>
-    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%# <%= form_with model: @user, url: user_registration_path, local: true do |f| %> %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
+      <div class="form-floating">
         <%= f.label :nickname %><br />
         <%= f.text_field :nickname, autofocus: true %>
       </div>
 
-      <div class="field">
+      <div class="form-floating">
         <%= f.label :email %><br />
         <%= f.email_field :email %>
       </div>
 
-      <div class="field">
+      <div class="form-floating">
         <%= f.label :password %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -23,12 +49,12 @@
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
-      <div class="field">
+      <div class="form-floating">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
       
-      <div class="field">
+      <div class="form-floating">
         <%= f.label :profile %> <br />
         <%= f.text_field :profile, autofocus: true, maxlength: "100" %>
       </div>
@@ -39,6 +65,10 @@
         <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up">
       </div>
     <% end %>
+    </form>
+</main>
+  </body>
   </div>
   </div>
 </div>
+</html>

@@ -126,6 +126,7 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  text-decoration: none;
 }
 
 abbr[title],
@@ -341,6 +342,17 @@ select {
 
 [list]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.mybutton{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background-color: #57af0f;
+  border-radius: 5px;
+  -weabkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 10px;
 }
 
 button,
@@ -3786,6 +3798,14 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+}
+
+.navbar-brand {
+  background-color: #000;
+  color: #fff;
+  padding: 30px 20px;
+  position: relative;
+  transition: padding ease 200ms;
 }
 
 .nav-link {

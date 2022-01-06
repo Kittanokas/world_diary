@@ -13,7 +13,7 @@
   <br>
    <div class="row">
   <div class="col align-self-center">
-    <li class='list'>
+    <li class='list-group'>
      <% if user_signed_in? %>
       <% @diaries.each do |diary| %>
         <body class="bg-light">
@@ -23,7 +23,7 @@
           <div class="card-body">
           <h5 class="card-title"> <%= diary.title %> </h5>
           </div><br/>
-          <a href="/users/<%= diary.user.id %>" class="btn btn-success"><%= current_user.nickname %></a>
+          <a href="/users/<%= diary.user.id %>" class="btn btn-success"><%= diary.user.nickname %></a>
           <a href="diaries/<%= diary.id %>" class="btn btn-outline-success">Show</a>              
         </body>
       <% end %>

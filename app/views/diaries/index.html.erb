@@ -1,7 +1,9 @@
 <div class="container-sm">
   <div class="row">
     <div class="col-lg-6 col-md-8 mx-auto">
-        <p class="lead text-muted" >今までのみなさんの旅日記を共有しませんか？ <br> 次に旅したい場所 また行ってみたい 世界の場所を探してみましょう</p>
+    <br/>
+        <p class="lead text-muted" >今までのみなさんの旅日記を共有しませんか？ <br> 次に旅したい場所 また行ってみたい <br/>世界の場所を探してみましょう</p>
+    <br/>
         <p>
         <% if user_signed_in? %>
           <a href="#" class="btn btn-outline-success">私の旅日記</a>
@@ -12,19 +14,19 @@
     </div>
   <br>
    <div class="row">
-  <div class="col align-self-center">
+      <div class="col-lg-6 col-md-8 mx-auto">
     <li class='list-group'>
      <% if user_signed_in? %>
       <% @diaries.each do |diary| %>
         <body class="bg-light">
           <div class="container text-secondary">
-          <%= image_tag diary.image.variant(resize: '300x300'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
+          <%= image_tag diary.image.variant(resize: '500x500'), class: "img-fluid img-thumbnail"  if diary.image.attached?%>
           </div>
-          <div class="card-body">
-          <h5 class="card-title"> <%= diary.title %> </h5>
+          <div class="card-body text-secondary">
+          <h3 class="card-title"> *<%= diary.title %>* </h5>
           </div><br/>
-          <a href="/users/<%= diary.user.id %>" class="btn btn-success"><%= diary.user.nickname %></a>
-          <a href="diaries/<%= diary.id %>" class="btn btn-outline-success">Show</a>              
+          <a href="/users/<%= diary.user.id %>" class="btn btn-secondary col-4"><%= diary.user.nickname %></a>
+          <a href="diaries/<%= diary.id %>" class="btn btn-outline-secondary col-4">Show</a>              
         </body>
       <% end %>
      <% end %>
@@ -46,7 +48,7 @@
 <footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
-      <a href="#">Back to top</a>
+      <a href="/" class="btn btn-outline-secondary">Back to top</a>
     </p>
   </div>
 </footer>

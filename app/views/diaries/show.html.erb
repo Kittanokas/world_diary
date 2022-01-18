@@ -24,36 +24,40 @@
     <!-- Custom styles for this template -->
     <link href="bootstrap.css" rel="stylesheets">
    </head>
-   <body class="text-center">
+   <body class="text-center bg-light">
 
    <div class='card-body'>
-    <%= image_tag @diary.image, class: "img-fluid img-thumbnail" %>
+    <%= image_tag @diary.image.variant(resize: '500x500'), class: "img-fluid img-thumbnail" %>
   </div>
-    <h5 class="card-title">
+    <h3 class="card-title">
       <%= @diary.title %>
     </h5>
      </p>
+
+    <p class='card-text'>
+      <%= @diary.content %>
+    </p>
+
      <% if @diary.user_id = current_user.id %>
       <div class="btn-group">
         <%= button_to 'Edit', edit_diary_path(@diary.id), method: :get, role: "button" %>
         <%= button_to 'Delete', diary_path(@diary.id), method: :delete, role: "button" %>
       </div>
      <% end %>
-        <p class='card-text'>
-         <%= @diary.content %>
-        </p>
 
-        <h2>gmap</h2>
-        <input id="address" type="textbox" value="GeekSalon">
+
+        <h2>Map</h2>
+        <input id="address" type="textbox" value="where?">
         <input type="button" value="Encode" onclick="codeAddress()">
 
-        <div id="display">何かが表示される、、、、！</div>
+        <div id="display"></div>
         <div id='map'></div>
 
        <style>
         #map {
-         height: 600px;
-         width: 600px;
+         height: 400px;
+         width: 400px;
+         margin: 0 auto;
         }
       </style>
 
